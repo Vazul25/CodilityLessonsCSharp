@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquiLeader", "EquiLeader\EquiLeader.csproj", "{3411F527-8856-4A1A-A4B5-E7B5347071EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3411F527-8856-4A1A-A4B5-E7B5347071EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3411F527-8856-4A1A-A4B5-E7B5347071EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3411F527-8856-4A1A-A4B5-E7B5347071EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3411F527-8856-4A1A-A4B5-E7B5347071EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4E27E7B-64E6-4BF4-9ECD-9D324ED73F5C}
+	EndGlobalSection
+EndGlobal

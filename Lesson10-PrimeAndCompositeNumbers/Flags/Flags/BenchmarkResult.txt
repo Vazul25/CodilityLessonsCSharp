@@ -1,0 +1,36 @@
+﻿// * Summary *
+
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+AMD Ryzen 7 2700X, 1 CPU, 16 logical and 8 physical cores
+.NET Core SDK=5.0.100-rc.1.20452.10
+  [Host]     : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
+  Job-TNKPLZ : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
+
+Data Length: 10 000 000;
+                  	         Method |          Mode |             Mean |           Error |          StdDev |           Median |     Gen 0 |     Gen 1 |     Gen 2 |  Allocated |
+|-------------------------------------- |-------------- |-----------------:|----------------:|----------------:|-----------------:|----------:|----------:|----------:|-----------:|
+|              VerifiedCodilitySolution | 1.HalfNoPeaks |     313,277.9 us |     5,140.59 us |     4,557.00 us |     313,392.8 us |         - |         - |         - | 50000048 B |
+|                              solution | 1.HalfNoPeaks |  20,065,098.2 us |    76,525.73 us |    71,582.21 us |  20,033,772.1 us |         - |         - |         - |          - |
+|         SolutionWithInnerBinarySearch | 1.HalfNoPeaks |     203,133.1 us |     4,030.04 us |     4,797.48 us |     202,200.4 us |         - |         - |         - | 20000024 B |
+|         SolutionWithOuterBinarySearch | 1.HalfNoPeaks |     174,454.9 us |        54.33 us |        48.16 us |     174,451.2 us |         - |         - |         - |          - |
+| SolutionWithInnerAndOuterBinarySearch | 1.HalfNoPeaks |      29,964.5 us |       436.33 us |       408.15 us |      29,808.0 us |         - |         - |         - | 20000024 B |
+|              VerifiedCodilitySolution | 2.HalfNoPeaks |     323,634.7 us |     6,283.07 us |     7,479.55 us |     325,122.1 us |         - |         - |         - | 50000048 B |
+|                              solution | 2.HalfNoPeaks |  12,705,375.5 us |    34,431.16 us |    28,751.58 us |  12,709,884.9 us |         - |         - |         - |          - |
+|         SolutionWithInnerBinarySearch | 2.HalfNoPeaks |     195,991.5 us |     3,747.88 us |     4,316.06 us |     196,068.7 us |         - |         - |         - | 20000024 B |
+|         SolutionWithOuterBinarySearch | 2.HalfNoPeaks |     278,336.8 us |        60.74 us |        56.81 us |     278,354.7 us |         - |         - |         - |          - |
+| SolutionWithInnerAndOuterBinarySearch | 2.HalfNoPeaks |      28,092.5 us |       513.39 us |       752.52 us |      28,018.4 us |         - |         - |         - | 20000024 B |
+|              VerifiedCodilitySolution |        NoPeak |      52,985.7 us |     1,764.24 us |     5,201.90 us |      53,154.8 us |         - |         - |         - | 50000048 B |
+|                              solution |        NoPeak | 113,124,167.6 us | 1,498,702.58 us | 1,401,887.33 us | 112,911,370.8 us | 1000.0000 | 1000.0000 | 1000.0000 |      424 B |
+|         SolutionWithInnerBinarySearch |        NoPeak |      19,152.8 us |     2,801.59 us |     8,260.55 us |      17,746.4 us |         - |         - |         - | 20000024 B |
+|         SolutionWithOuterBinarySearch |        NoPeak |     630,877.1 us |     8,612.79 us |     8,056.41 us |     632,177.7 us |         - |         - |         - |          - |
+| SolutionWithInnerAndOuterBinarySearch |        NoPeak |               NA |              NA |              NA |               NA |         - |         - |         - |          - |
+|              VerifiedCodilitySolution |       OnePeak |      59,649.9 us |     2,538.24 us |     7,484.07 us |      57,833.7 us |         - |         - |         - | 50000048 B |
+|                              solution |       OnePeak | 113,106,181.2 us |   223,795.89 us |   186,879.71 us | 113,089,417.2 us |         - |         - |         - |     1384 B |
+|         SolutionWithInnerBinarySearch |       OnePeak |      18,929.7 us |     2,624.12 us |     7,737.28 us |      18,725.2 us |         - |         - |         - | 20000024 B |
+|         SolutionWithOuterBinarySearch |       OnePeak |     607,592.3 us |     8,116.01 us |     6,777.24 us |     608,133.1 us |         - |         - |         - |          - |
+| SolutionWithInnerAndOuterBinarySearch |       OnePeak |      16,808.6 us |     2,764.88 us |     8,152.31 us |      16,700.8 us |         - |         - |         - | 20000024 B |
+|              VerifiedCodilitySolution |        Random |     447,293.6 us |     8,911.43 us |    10,262.42 us |     447,995.2 us |         - |         - |         - | 50001864 B |
+|                              solution |        Random |         131.5 us |         4.12 us |        11.55 us |         128.1 us |         - |         - |         - |          - |
+|         SolutionWithInnerBinarySearch |        Random |      43,330.2 us |       855.41 us |     2,049.50 us |      43,652.1 us |         - |         - |         - | 20000024 B |
+|         SolutionWithOuterBinarySearch |        Random |       1,193.6 us |        23.60 us |        33.84 us |       1,186.5 us |         - |         - |         - |          - |
+| SolutionWithInnerAndOuterBinarySearch |        Random |      51,690.9 us |     1,032.85 us |     2,414.24 us |      51,689.3 us |         - |         - |         - | 20000024 B |

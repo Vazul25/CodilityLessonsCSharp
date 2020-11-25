@@ -1,0 +1,118 @@
+﻿
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.572 (2004/?/20H1)
+AMD Ryzen 7 2700X, 1 CPU, 16 logical and 8 physical cores
+.NET Core SDK=5.0.100-rc.1.20452.10
+  [Host]     : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
+  DefaultJob : .NET Core 3.1.8 (CoreCLR 4.700.20.41105, CoreFX 4.700.20.41903), X64 RyuJIT
+100000
+|              Method |          Mode |       Mean |    Error |   StdDev |    Gen 0 |    Gen 1 |    Gen 2 | Allocated |
+|-------------------- |-------------- |-----------:|---------:|---------:|---------:|---------:|---------:|----------:|
+|          Mysolution | 1.HalfNoPeaks | 1,391.6 us | 10.25 us |  9.08 us |  60.5469 |  60.5469 |  60.5469 |  202681 B |
+|      OnlineSolution | 1.HalfNoPeaks | 3,058.1 us |  2.70 us |  2.53 us |  39.0625 |  39.0625 |  39.0625 |  262501 B |
+| MyErroneousSolution | 1.HalfNoPeaks |   360.2 us |  1.86 us |  1.64 us |  62.0117 |  62.0117 |  62.0117 |  202687 B |
+|          Mysolution | 2.HalfNoPeaks |   337.9 us |  1.11 us |  1.04 us |  62.0117 |  62.0117 |  62.0117 |  202680 B |
+|      OnlineSolution | 2.HalfNoPeaks |   715.4 us |  2.43 us |  2.27 us |  41.0156 |  41.0156 |  41.0156 |  262497 B |
+| MyErroneousSolution | 2.HalfNoPeaks |   345.0 us |  3.84 us |  3.40 us |  62.0117 |  62.0117 |  62.0117 |  202684 B |
+|          Mysolution |        NoPeak |   144.1 us |  0.61 us |  0.57 us |  62.2559 |  62.2559 |  62.2559 |  200024 B |
+|      OnlineSolution |        NoPeak |   460.6 us |  0.18 us |  0.16 us |        - |        - |        - |      32 B |
+| MyErroneousSolution |        NoPeak |   144.6 us |  1.17 us |  1.04 us |  62.2559 |  62.2559 |  62.2559 |  200024 B |
+|          Mysolution |       OnePeak |   147.5 us |  1.36 us |  1.27 us |  62.2559 |  62.2559 |  62.2559 |  202680 B |
+|      OnlineSolution |       OnePeak |   460.6 us |  0.24 us |  0.19 us |        - |        - |        - |      72 B |
+| MyErroneousSolution |       OnePeak |   146.8 us |  0.62 us |  0.52 us |  62.2559 |  62.2559 |  62.2559 |  202680 B |
+|          Mysolution |        Random | 1,214.3 us |  6.67 us |  5.91 us |  60.5469 |  60.5469 |  60.5469 |  202683 B |
+|      OnlineSolution |        Random |   772.0 us | 11.21 us | 10.48 us | 124.0234 | 124.0234 | 124.0234 |  524665 B |
+| MyErroneousSolution |        Random | 1,890.2 us | 24.03 us | 20.07 us |  60.5469 |  60.5469 |  60.5469 |  202683 B |
+
+
+10000000
+|              Method |          Mode |      Mean |    Error |   StdDev |    Gen 0 |    Gen 1 |    Gen 2 |  Allocated |
+|-------------------- |-------------- |----------:|---------:|---------:|---------:|---------:|---------:|-----------:|
+|          Mysolution | 1.HalfNoPeaks | 130.88 ms | 2.601 ms | 5.429 ms |        - |        - |        - | 20025448 B |
+|      OnlineSolution | 1.HalfNoPeaks | 544.76 ms | 4.445 ms | 3.941 ms |        - |        - |        - | 16778272 B |
+| MyErroneousSolution | 1.HalfNoPeaks |  35.59 ms | 0.304 ms | 0.254 ms | 133.3333 | 133.3333 | 133.3333 | 20025448 B |
+|          Mysolution | 2.HalfNoPeaks |  34.09 ms | 0.388 ms | 0.363 ms | 133.3333 | 133.3333 | 133.3333 | 20025446 B |
+|      OnlineSolution | 2.HalfNoPeaks |  73.97 ms | 0.619 ms | 0.549 ms |        - |        - |        - | 16777903 B |
+| MyErroneousSolution | 2.HalfNoPeaks |  34.50 ms | 0.457 ms | 0.428 ms | 133.3333 | 133.3333 | 133.3333 | 20025446 B |
+|          Mysolution |        NoPeak |  14.29 ms | 0.107 ms | 0.090 ms | 156.2500 | 156.2500 | 156.2500 | 20000031 B |
+|      OnlineSolution |        NoPeak |  46.74 ms | 0.025 ms | 0.021 ms |        - |        - |        - |       32 B |
+| MyErroneousSolution |        NoPeak |  14.21 ms | 0.080 ms | 0.071 ms | 156.2500 | 156.2500 | 156.2500 | 20000042 B |
+|          Mysolution |       OnePeak |  14.23 ms | 0.075 ms | 0.070 ms | 156.2500 | 156.2500 | 156.2500 | 20025467 B |
+|      OnlineSolution |       OnePeak |  46.88 ms | 0.181 ms | 0.169 ms |        - |        - |        - |       72 B |
+| MyErroneousSolution |       OnePeak |  14.22 ms | 0.062 ms | 0.055 ms | 156.2500 | 156.2500 | 156.2500 | 20025467 B |
+|          Mysolution |        Random |  91.54 ms | 0.244 ms | 0.204 ms |        - |        - |        - | 20025671 B |
+|      OnlineSolution |        Random |  74.16 ms | 0.445 ms | 0.372 ms | 428.5714 | 428.5714 | 428.5714 | 33556896 B |
+| MyErroneousSolution |        Random | 120.63 ms | 0.365 ms | 0.305 ms |        - |        - |        - | 20025811 B |
+
+
+1000000000
+
+
+
+|              Method |          Mode |     Mean |    Error |   StdDev |     Gen 0 |     Gen 1 |     Gen 2 |    Allocated |
+|-------------------- |-------------- |---------:|---------:|---------:|----------:|----------:|----------:|-------------:|
+|          Mysolution | 1.HalfNoPeaks | 21.392 s | 0.4184 s | 0.6636 s |         - |         - |         - | 2000253128 B |
+|      OnlineSolution | 1.HalfNoPeaks | 93.649 s | 1.3185 s | 1.2333 s |         - |         - |         - | 2147484312 B |
+| MyErroneousSolution | 1.HalfNoPeaks |  3.453 s | 0.0428 s | 0.0379 s |         - |         - |         - | 2000254368 B |
+|          Mysolution | 2.HalfNoPeaks |  3.599 s | 0.0271 s | 0.0240 s |         - |         - |         - | 2000253128 B |
+|      OnlineSolution | 2.HalfNoPeaks |  7.298 s | 0.0365 s | 0.0285 s | 1000.0000 | 1000.0000 | 1000.0000 | 2147486128 B |
+| MyErroneousSolution | 2.HalfNoPeaks |  3.283 s | 0.0286 s | 0.0254 s |         - |         - |         - | 2000254368 B |
+|          Mysolution |        NoPeak |  1.368 s | 0.0260 s | 0.0243 s |         - |         - |         - | 2000000024 B |
+|      OnlineSolution |        NoPeak |  4.722 s | 0.0440 s | 0.0412 s |         - |         - |         - |         32 B |
+| MyErroneousSolution |        NoPeak |  1.477 s | 0.0292 s | 0.0410 s |         - |         - |         - | 2000000024 B |
+|          Mysolution |       OnePeak |  1.484 s | 0.0286 s | 0.0281 s |         - |         - |         - | 2000254464 B |
+|      OnlineSolution |       OnePeak |  4.897 s | 0.0514 s | 0.0481 s |         - |         - |         - |       1408 B |
+| MyErroneousSolution |       OnePeak |  1.505 s | 0.0227 s | 0.0212 s | 1000.0000 | 1000.0000 | 1000.0000 | 2000263024 B |
+|          Mysolution |        Random | 10.604 s | 0.0976 s | 0.0913 s |         - |         - |         - | 2000253128 B |
+|      OnlineSolution |        Random |  8.069 s | 0.0609 s | 0.0540 s |         - |         - |         - | 4294968544 B |
+| MyErroneousSolution |        Random | 12.688 s | 0.1273 s | 0.1128 s |         - |         - |         - | 2000254368 B |
+
+
+Testing newSolution with prefixsums
+DataLength:10000000
+
+|                   Method |          Mode |      Mean |    Error |   StdDev |    Gen 0 |    Gen 1 |    Gen 2 |  Allocated |
+|------------------------- |-------------- |----------:|---------:|---------:|---------:|---------:|---------:|-----------:|
+|               Mysolution | 1.HalfNoPeaks | 157.14 ms | 3.004 ms | 2.663 ms |        - |        - |        - | 20025758 B |
+|           OnlineSolution | 1.HalfNoPeaks | 557.33 ms | 4.187 ms | 3.712 ms |        - |        - |        - | 16777712 B |
+|      MyErroneousSolution | 1.HalfNoPeaks |  35.75 ms | 0.386 ms | 0.361 ms | 214.2857 | 214.2857 | 214.2857 | 20025448 B |
+| MySolutionWIthPrefixSums | 1.HalfNoPeaks |  64.29 ms | 1.167 ms | 1.597 ms | 250.0000 | 250.0000 | 250.0000 | 40025445 B |
+|               Mysolution | 2.HalfNoPeaks |  33.85 ms | 0.194 ms | 0.172 ms | 133.3333 | 133.3333 | 133.3333 | 20025446 B |
+|           OnlineSolution | 2.HalfNoPeaks |  77.78 ms | 1.371 ms | 1.282 ms |        - |        - |        - | 16777970 B |
+|      MyErroneousSolution | 2.HalfNoPeaks |  35.04 ms | 0.469 ms | 0.416 ms | 133.3333 | 133.3333 | 133.3333 | 20025446 B |
+| MySolutionWIthPrefixSums | 2.HalfNoPeaks |  52.41 ms | 0.680 ms | 0.531 ms | 200.0000 | 200.0000 | 200.0000 | 40026889 B |
+|               Mysolution |        NoPeak |  14.80 ms | 0.201 ms | 0.215 ms | 156.2500 | 156.2500 | 156.2500 | 20000022 B |
+|           OnlineSolution |        NoPeak |  47.29 ms | 0.128 ms | 0.113 ms |        - |        - |        - |       32 B |
+|      MyErroneousSolution |        NoPeak |  14.77 ms | 0.147 ms | 0.138 ms | 156.2500 | 156.2500 | 156.2500 | 20000042 B |
+| MySolutionWIthPrefixSums |        NoPeak |  34.79 ms | 0.696 ms | 1.124 ms | 266.6667 | 266.6667 | 266.6667 | 40025443 B |
+|               Mysolution |       OnePeak |  14.79 ms | 0.116 ms | 0.103 ms | 156.2500 | 156.2500 | 156.2500 | 20025468 B |
+|           OnlineSolution |       OnePeak |  49.87 ms | 0.234 ms | 0.219 ms |        - |        - |        - |       72 B |
+|      MyErroneousSolution |       OnePeak |  14.50 ms | 0.078 ms | 0.069 ms | 156.2500 | 156.2500 | 156.2500 | 20025467 B |
+| MySolutionWIthPrefixSums |       OnePeak |  34.80 ms | 0.679 ms | 0.929 ms | 285.7143 | 285.7143 | 285.7143 | 40025443 B |
+|               Mysolution |        Random | 116.31 ms | 0.675 ms | 0.527 ms |        - |        - |        - | 20025715 B |
+|           OnlineSolution |        Random |  73.30 ms | 0.557 ms | 0.521 ms | 428.5714 | 428.5714 | 428.5714 | 33554945 B |
+|      MyErroneousSolution |        Random | 150.05 ms | 1.008 ms | 0.893 ms |        - |        - |        - | 20025758 B |
+| MySolutionWIthPrefixSums |        Random |  75.14 ms | 1.465 ms | 1.629 ms | 333.3333 | 333.3333 | 333.3333 | 40025444 B |
+
+DataLength:1000000000
+|                   Method |          Mode |     Mean |    Error |   StdDev | Gen 0 | Gen 1 | Gen 2 |    Allocated |
+|------------------------- |-------------- |---------:|---------:|---------:|------:|------:|------:|-------------:|
+|               Mysolution | 1.HalfNoPeaks | 20.402 s | 0.2415 s | 0.2259 s |     - |     - |     - | 2000254368 B |
+|           OnlineSolution | 1.HalfNoPeaks | 91.372 s | 0.2971 s | 0.2481 s |     - |     - |     - | 2147486128 B |
+|      MyErroneousSolution | 1.HalfNoPeaks |  3.329 s | 0.0151 s | 0.0126 s |     - |     - |     - | 2000253128 B |
+| MySolutionWIthPrefixSums | 1.HalfNoPeaks |  7.268 s | 0.0608 s | 0.0569 s |     - |     - |     - | 4000253128 B |
+|               Mysolution | 2.HalfNoPeaks |  3.461 s | 0.0184 s | 0.0172 s |     - |     - |     - | 2000253128 B |
+|           OnlineSolution | 2.HalfNoPeaks |  7.359 s | 0.0307 s | 0.0272 s |     - |     - |     - | 2147484312 B |
+|      MyErroneousSolution | 2.HalfNoPeaks |  3.333 s | 0.0115 s | 0.0096 s |     - |     - |     - | 2000254368 B |
+| MySolutionWIthPrefixSums | 2.HalfNoPeaks |  6.071 s | 0.0696 s | 0.0651 s |     - |     - |     - | 4000254464 B |
+|               Mysolution |        NoPeak |  1.376 s | 0.0083 s | 0.0078 s |     - |     - |     - | 2000000024 B |
+|           OnlineSolution |        NoPeak |  4.706 s | 0.0117 s | 0.0104 s |     - |     - |     - |         32 B |
+|      MyErroneousSolution |        NoPeak |  1.386 s | 0.0157 s | 0.0139 s |     - |     - |     - | 2000000024 B |
+| MySolutionWIthPrefixSums |        NoPeak |  4.550 s | 0.0267 s | 0.0250 s |     - |     - |     - | 4000253128 B |
+|               Mysolution |       OnePeak |  1.395 s | 0.0106 s | 0.0100 s |     - |     - |     - | 2000254936 B |
+|           OnlineSolution |       OnePeak |  4.939 s | 0.0246 s | 0.0231 s |     - |     - |     - |         72 B |
+|      MyErroneousSolution |       OnePeak |  1.376 s | 0.0088 s | 0.0078 s |     - |     - |     - | 2000253128 B |
+| MySolutionWIthPrefixSums |       OnePeak |  4.037 s | 0.0574 s | 0.0537 s |     - |     - |     - | 4000253128 B |
+|               Mysolution |        Random |  9.696 s | 0.0618 s | 0.0548 s |     - |     - |     - | 2000253128 B |
+|           OnlineSolution |        Random |  7.749 s | 0.0349 s | 0.0309 s |     - |     - |     - | 4294967984 B |
+|      MyErroneousSolution |        Random | 11.212 s | 0.0517 s | 0.0458 s |     - |     - |     - | 2000253128 B |
+| MySolutionWIthPrefixSums |        Random |  8.205 s | 0.0606 s | 0.0537 s |     - |     - |     - | 4000253184 B |

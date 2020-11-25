@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbsDistinct", "AbsDistinct\AbsDistinct.csproj", "{4E09D361-95FF-483D-A4D4-F79C9C387ED9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbsDistinctTest", "AbsDistinctTest\AbsDistinctTest.csproj", "{7324DABA-70E5-43DB-9193-C1498AD0A5F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E09D361-95FF-483D-A4D4-F79C9C387ED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E09D361-95FF-483D-A4D4-F79C9C387ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E09D361-95FF-483D-A4D4-F79C9C387ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E09D361-95FF-483D-A4D4-F79C9C387ED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7324DABA-70E5-43DB-9193-C1498AD0A5F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7324DABA-70E5-43DB-9193-C1498AD0A5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7324DABA-70E5-43DB-9193-C1498AD0A5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7324DABA-70E5-43DB-9193-C1498AD0A5F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {598823EA-DE59-4B93-B968-70F6A3D15B29}
+	EndGlobalSection
+EndGlobal
